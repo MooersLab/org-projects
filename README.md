@@ -11,9 +11,10 @@ Our work is project-driven and has been divided into about 1200 projects over th
 Usually, ideas for TODOs emerge for the projects that we are most actively engaged in at the moment.
 In these situations, we already have the number and name at the front of our mind.
 Before this package, when we could not remember the project name, we looked up the project name using `ls` in the terminal, in the favorites sidebar of the Mac's finder GUI, or we looked it up in a database file.
-Now, we can use this package, along with the invaluable packages `orderless` and `vertico`, to find the project name by entering `C-c o l` and searching for the project name with keywords in the minibuffer.
+Now, we can use this package, along with the invaluable packages `orderless` and `vertico`, to find the project name by entering `C-c o t` and searching for the project name with keywords in the minibuffer.
+We can use this package for project look-up and then escape the TODO note completion by entering `C-g`.
 
-If we have a TODO note for which we cannot think of a project to assign it to, we may need to start a new project, but in the meantime, we can always use a regular org-capture TODO note to save it to the standard `task.org` for later refiling.
+If we have a TODO note for which we cannot think of a target project for assignment, we may need to start a new project, but in the meantime, we can always use a regular `org-capture` TODO note to save it to the standard `task.org` of the Getting Things Done method for later refiling.
 With this package, we can follow the principle of handling a TODO item only once at least 90% of the time and have to refile the remaining TODOs from the `tasks.org` file once a week.
 
 This package is helpful if you manage many projects and assign each project to a four-digit index number 
@@ -23,7 +24,7 @@ The org-projects.el package is designed to work with the [writing log template](
 
 The TODO list is below the Daily Log entries in the middle of this template.
 This project does not use org-capture, which often places TODOs at the file's bottom. 
-The file's bottom can be thousands of lines away can the project matures.
+The file's bottom can be thousands of lines away as the project matures.
 
 ## Overview
 
