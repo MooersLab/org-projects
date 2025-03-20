@@ -3,17 +3,27 @@
 
 # org-projects
 
-An Emacs package for managing TODO items in project-specific log files written in org-mode.
-This package eliminates the need to refile TODOs from a task.org file to a TODO list in a project-specific file.
-The second step wastes time when you already know which project to which you will assign the TODO.
-We are following the principle of handling a TODO item only once.
+This is an Emacs package for managing TODO items in project-specific log files written in org-mode.
+This package eliminates the refiling of TODOs from a task.org file to a TODO list in a project-specific file.
+This second step of the standard TODO note capture wastes time when you know the project to which you will assign the TODO.
+
+Our work is project-driven and has been divided into about 1200 projects over the past three years.
+Usually, ideas for TODOs emerge for the projects that we are most actively engaged in at the moment.
+In these situations, we already have the number and name at the front of our mind.
+Before this package, when we could not remember the project name, we looked up the project name using `ls` in the terminal, in the favorites sidebar of the Mac's finder GUI, or we looked it up in a database file.
+Now, we can use this package, along with the invaluable packages `orderless` and `vertico`, to find the project name by entering `C-c o l` and searching for the project name with keywords in the minibuffer.
+
+If we have a TODO note for which we cannot think of a project to assign it to, we may need to start a new project, but in the meantime, we can always use a regular org-capture TODO note to save it to the standard `task.org` for later refiling.
+With this package, we can follow the principle of handling a TODO item only once at least 90% of the time and have to refile the remaining TODOs from the `tasks.org` file once a week.
 
 This package is helpful if you manage many projects and assign each project to a four-digit index number 
-that starts with the name of the project's folder in your home directory. We use this flat directory approach in our 10K project 
-management system for academics. It is designed to work with the [writing log template](https://github.com/MooersLab/writingLogTemplateInOrg) written in org-mode.
-The TODO list is below the Daily Log entries in the middle of this template.
-This project does not use org-capture, often placing TODOs at the file's bottom. 
+that starts with the name of the project's folder in your home directory. 
+We use this flat directory approach in our 10K project management system for lifelong project management. 
+The org-projects.el package is designed to work with the [writing log template](https://github.com/MooersLab/writingLogTemplateInOrg) written in org-mode.
 
+The TODO list is below the Daily Log entries in the middle of this template.
+This project does not use org-capture, which often places TODOs at the file's bottom. 
+The file's bottom can be thousands of lines away can the project matures.
 
 ## Overview
 
@@ -22,7 +32,7 @@ It is mainly designed for projects organized with a 4-digit number prefix in the
 
 Key features:
 - Quickly add TODOs to project-specific log files.
-- Automatically organizes TODOs under tagged headers.
+- Eliminate the need for >90% of refiling.
 - Simple project selection via minibuffer completion.
 - Works with your existing directory structure.
 - Does not rely on org-capture (avoids TODO placement issues).
@@ -101,14 +111,13 @@ You can customize the package by setting variables before calling `org-projects-
 (org-projects-setup)
 ```
 
-## AI assistance
-This code was made after wrestling for 12 hours with 3 chatbots: Claude 3.5 Sonnet, Copilot, and Claude 3.7 Sonnet.
-The first generated complex code, the second gave results that were too simple, and the third did well.
-
 ## Requirements
 
 - Emacs 27.1 or higher
 - org-mode 9.3 or higher
+
+## Status
+It works, but it is still alpha.
 
 ## Update history
 
