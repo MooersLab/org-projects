@@ -5,20 +5,20 @@
 
 An Emacs package for managing TODO items in project-specific log files written in org-mode.
 This package eliminates the need to refile TODOs from a task.org file to a TODO list in a project-specific file.
-This second step is a waste of time when you already know which project to which you will assign the TODO.
+The second step wastes time when you already know which project to which you will assign the TODO.
 We are following the principle of handling a TODO item only once.
 
-This package is useful if you manage many projects and assign each project to an four digit index number 
-that starts the name of the project's folder in your home directory. We use this flat directory approach in our 10K project 
+This package is helpful if you manage many projects and assign each project to a four-digit index number 
+that starts with the name of the project's folder in your home directory. We use this flat directory approach in our 10K project 
 management system for academics. It is designed to work with the [writing log template](https://github.com/MooersLab/writingLogTemplateInOrg) written in org-mode.
 The TODO list is below the Daily Log entries in the middle of this template.
-This project does not use org-capture, which often places TODOs at the bottom of the file. 
+This project does not use org-capture, often placing TODOs at the file's bottom. 
 
 
 ## Overview
 
 `org-projects` provides a streamlined way to add TODO items to project log files. 
-It is particularly designed for projects organized with a 4-digit number prefix in the home directory (e.g., `~/1234projectName/`).
+It is mainly designed for projects organized with a 4-digit number prefix in the home directory (e.g., `~/1234projectName/`).
 
 Key features:
 - Quickly add TODOs to project-specific log files.
@@ -88,7 +88,7 @@ When creating a new log file, the package generates this structure:
 * Tasks
 
 *** TODO List :appendtodos:
-**** TODO first todo. Append to bottom of list.
+**** TODO first todo. Append to the bottom of list.
 ```
 
 ## Customization
