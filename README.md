@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/static/v1?label=org-projects&message=0.1&color=brightcolor)
+![Version](https://img.shields.io/static/v1?label=org-projects&message=0.2&color=brightcolor)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 # org-projects
@@ -18,7 +18,7 @@ Our project-driven work has been divided into about 1200 projects over the past 
 Usually, ideas for TODOs emerge for the projects we are most actively engaged in.
 In these situations, we already have the number and name at the front of our minds.
 Before this package, when we could not remember the project name, we looked up the project name using `ls` in the terminal, in the favorites sidebar of the Mac's finder GUI, or we looked it up in a database file.
-Now, we can use this package, along with the invaluable packages `orderless` and `vertico`, to find the project name by entering `C-c o t` and searching for the project name with keywords in the minibuffer.
+Now, we can use this package, along with the invaluable packages `orderless` and `vertico`, to find the project name by entering `C-c j t` and searching for the project name with keywords in the minibuffer.
 We can use this package for project look-up and then escape the TODO note completion by entering `C-g`.
 
 If we have a TODO note for which we cannot think of a target project for assignment, we may need to start a new project, but in the meantime, we can always use a regular `org-capture` TODO note to save it to the standard `task.org` of the Getting Things Done method for later refiling.
@@ -37,11 +37,18 @@ The file's bottom can be thousands of lines away as the project matures.
 `org-projects` provides a streamlined way to add TODO items to project log files. 
 It is mainly designed for projects organized with a 4-digit number prefix in the home directory (e.g., `~/1234projectName/`).
 
-Key features:
+### Assumptionsz;
+
+- The project directory starts with four digit code. 
+- The writing log or project log filename is of the form `log####.org`.
+- A third level headline is above your todo list. The new todo is added at the bottom of the todo subtree. The head line has the tag `:appendtodos`.
+- Existing todos may or may be present.
+
+### Key features:
+
 - Quickly add TODOs to project-specific log files.
-- Eliminate the need for >90% of refiling.
-- Simple project selection via minibuffer completion.
-- Works with your existing directory structure.
+- Eliminates the need for >90% of refiling.
+- Simple project directory selection via minibuffer completion.
 - Does not rely on org-capture (avoids TODO placement issues).
 
 ## Installation
@@ -74,7 +81,7 @@ Add this to your Emacs configuration:
 
 ### Adding a TODO
 
-1. Press `C-c o t` or run `M-x add-todo`.
+1. Press `C-c j t` or run `M-x add-todo`.
 2. Select a project from the completion list.
 3. Enter the TODO headline.
 4. Enter the TODO description.
@@ -82,18 +89,19 @@ Add this to your Emacs configuration:
 
 ### Other Commands
 
-- `C-c o l` - View a list of all projects.
-- `C-c o o` - Open a project log file.
+- `C-c j l` - View a list of all projects.
+- `C-c j o` - Open a project log file.
 
 ## Project Structure Requirements
 
 This package expects:
 
 1. Project directories in your home folder with 4-digit number prefixes (e.g., `~/1234-project-name/`)
-2. Log files named `log####.org` where #### matches the project number. See for template: 
+2. Log files named `log####.org` where `####` matches the project number. See [template](https://github.com/MooersLab/writingLogTemplateInOrg/writingLogTemplateVer082.org).
 3. Log files contain a level-3 headline with the `:appendtodos:` tag where TODOs should be placed
 
 If a log file doesn't exist, it will be created with an appropriate structure when you first add a TODO to that project.
+
 
 ## Default File Structure
 
@@ -124,13 +132,14 @@ You can customize the package by setting variables before calling `org-projects-
 - org-mode 9.3 or higher
 
 ## Status
-It works, but it is still alpha.
+It works, but it is still alpha. Not fully tested. Not ready for MELPA
 
 ## Update history
 
 |Version      | Changes                                                                                                                                                                         | Date                 |
 |:-----------|:------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|
 | Version 0.1 |   Added badges, funding, and update table.  Initial commit.                                                                                                                | 2025 March 20  |
+| Version 0.2 |   Switch keybinding prefex to C-c j.                                                                                                                | 2025 March 21  |
 
 ## Sources of funding
 
