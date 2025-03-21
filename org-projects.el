@@ -29,7 +29,8 @@
   :group 'org
   :prefix "org-projects-")
 
-(defcustom org-projects-keymap-prefix "C-c o"
+;; We'll use a simple prefix key that's less likely to conflict
+(defcustom org-projects-prefix-key "C-c j"
   "Prefix key for org-projects commands."
   :type 'string
   :group 'org-projects)
@@ -120,12 +121,12 @@ Prompts for project selection, TODO headline, and description."
           (re-search-forward (concat "TODO " (regexp-quote todo-headline)) nil t))
       (message "Failed to add TODO"))))
 
-;; Keymap for quick access
-(defvar org-projects-map
+;; Create a command map for our functions
+(defvar org-projects-command-map
   (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "t") 'add-todo)
-    (define-key map (kbd "l") 'org-projects-list-projects)
-    (define-key map (kbd "o") 'org-projects-open-log)
+    (define-key map "t" #'add-todo)
+    (define-key map "l" #'org-projects-list-projects)
+    (define-key map "o" #'org-projects-open-log)
     map)
   "Keymap for org-projects commands.")
 
@@ -157,18 +158,21 @@ Prompts for project selection, TODO headline, and description."
          (log-file (org-projects-ensure-log-file project-num)))
     (find-file log-file)))
 
-;; Setup function
+;; Define the keymap binding directly
 ;;;###autoload
 (defun org-projects-setup ()
   "Set up org-projects keybindings and other configurations."
   (interactive)
-  ;; Set up the keymap
-  (global-set-key (kbd org-projects-keymap-prefix) org-projects-map)
   
-  ;; Add any other initialization here
+  ;; Set up the direct keybindings for commonly used functions
+  (global-set-key (kbd "C-c j t") #'add-todo)
+  (global-set-key (kbd "C-c j l") #'org-projects-list-projects)
+  (global-set-key (kbd "C-c j o") #'org-projects-open-log)
   
-  (message "org-projects setup complete. Use %s t to add TODOs." 
-           org-projects-keymap-prefix))
+  ;; Also bind the prefix key to the command map for completeness
+  (global-set-key (kbd "C-c j") org-projects-command-map)
+  
+  (message "org-projects setup complete. Use C-c j t to add TODOs."))
 
 (provide 'org-projects)
 
